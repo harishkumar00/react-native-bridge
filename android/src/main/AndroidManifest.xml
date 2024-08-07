@@ -1,3 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.bridge">
+  package="com.bridge">
+
+  <queries>
+    <package android:name="com.amazon.dee.app" />
+    <package android:name="com.google.android.apps.chromecast.app" />
+  </queries>
+
 </manifest>

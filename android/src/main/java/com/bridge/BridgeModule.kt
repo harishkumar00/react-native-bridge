@@ -1,9 +1,9 @@
 package com.bridge
 
+import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
-import com.facebook.react.bridge.Promise
 
 class BridgeModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext) {
@@ -12,11 +12,12 @@ class BridgeModule(reactContext: ReactApplicationContext) :
     return NAME
   }
 
-  // Example method
-  // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
-  fun multiply(a: Double, b: Double, promise: Promise) {
-    promise.resolve(a * b)
+  fun isPackageInstalled(packageName: String, promise: Promise) {
+    val packageManagerAPI = PackageManagerAPI()
+    val isPackageInstalled =
+      packageManagerAPI.isPackageInstalled(reactApplicationContext, packageName)
+    promise.resolve(isPackageInstalled)
   }
 
   companion object {

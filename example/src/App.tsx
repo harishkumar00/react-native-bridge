@@ -1,17 +1,21 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-bridge';
+import { PackageManager } from 'react-native-bridge';
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
+  const func = async () => {
+    const isPackageInstalled =
+      await PackageManager.isPackageInstalled('https://');
 
-  useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+    console.log('isPackageInstalled', isPackageInstalled);
+  };
+  React.useEffect(() => {
+    func();
+  });
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Test</Text>
     </View>
   );
 }
