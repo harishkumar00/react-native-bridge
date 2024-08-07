@@ -4,30 +4,23 @@ Bridge for native Api's
 
 ## Installation
 
-```sh
+```javascript
 npm install react-native-bridge
+```
+```javascript
+yarn add react-native-bridge
 ```
 
 ## Usage
 
+### isPackageInstalled
+> To find if the app is installed on the device
+```javascript
+import { PackageManager } from 'react-native-bridge';
 
-```js
-import { multiply } from 'react-native-bridge';
+// Android
+PackageManager.isPackageInstalled("com.example.package") // true or false
 
-// ...
-
-const result = await multiply(3, 7);
+// iOS
+PackageManager.isPackageInstalled("scheme://") // true or false
 ```
-
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
-## License
-
-MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
