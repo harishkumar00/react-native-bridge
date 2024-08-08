@@ -27,9 +27,9 @@ export default function App() {
         style={styles.button}
         title="Get Fingerprint"
         onPress={() => {
-          PackageManager.getPackageFingerprint(
-            'rocks.keyless.app.android.sapphire'
-          ).then(console.log);
+          PackageManager.getPackageFingerprint('com.amazon.dee.app').then(
+            console.log
+          );
         }}
       />
       <Button
