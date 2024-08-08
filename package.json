@@ -1,6 +1,7 @@
 {
   "name": "react-native-bridge",
   "version": "0.1.0",
+  "private": true,
   "description": "Bridge for native Api's",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
