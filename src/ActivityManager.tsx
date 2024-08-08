@@ -17,18 +17,12 @@ const Bridge = NativeModules.Bridge
       }
     );
 
-async function isPackageInstalled(packageName: string): Promise<boolean> {
-  return await Bridge.isPackageInstalled(packageName);
-}
-
-async function getPackageFingerprint(
-  packageName: string
-): Promise<string | null> {
+type resultType = 'ok' | 'cancel';
+type extrasType = { [key: string]: number | string | boolean };
+function setResultAndFinish(result: resultType, extras: extrasType): void {
   if (Platform.OS === 'android') {
-    return await Bridge.getPackageFingerprint(packageName);
+    Bridge.setResultAndFinish(result, extras);
   }
-
-  return null;
 }
 
-export { isPackageInstalled, getPackageFingerprint };
+export { setResultAndFinish };
